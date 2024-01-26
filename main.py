@@ -66,23 +66,38 @@ while running:
     )
 
     # Draw the green circle in the bottom-right corner
-    green_circle_x = screen.get_width() - player_radius  # X position
-    green_circle_y = screen.get_height() - player_radius  # Y position
-    pygame.draw.circle(screen, "green", (green_circle_x, green_circle_y), player_radius)
+    # green_circle_x = screen.get_width() - player_radius  # X position
+    # green_circle_y = screen.get_height() - player_radius  # Y position
+    # pygame.draw.circle(screen, "green", (green_circle_x, green_circle_y), player_radius)
 
-    purple_circle_x = 0 + player_radius  # X position
-    purple_circle_y = screen.get_height() - player_radius  # Y position
-    pygame.draw.circle(
-        screen, "purple", (purple_circle_x, purple_circle_y), player_radius
-    )
-    yellow_circle_x = 0 + player_radius  # X position
-    yellow_circle_y = 0 + player_radius  # Y position
-    pygame.draw.circle(
-        screen, "yellow", (yellow_circle_x, yellow_circle_y), player_radius
-    )
-    red_circle_x = screen.get_width() - player_radius  # X position
-    red_circle_y = 0 + player_radius  # Y position
-    pygame.draw.circle(screen, "red", (red_circle_x, red_circle_y), player_radius)
+    # purple_circle_x = 0 + player_radius  # X position
+    # purple_circle_y = screen.get_height() - player_radius  # Y position
+    # pygame.draw.circle(
+    #     screen, "purple", (purple_circle_x, purple_circle_y), player_radius
+    # )
+    # yellow_circle_x = 0 + player_radius  # X position
+    # yellow_circle_y = 0 + player_radius  # Y position
+    # pygame.draw.circle(
+    #     screen, "yellow", (yellow_circle_x, yellow_circle_y), player_radius
+    # )
+    # red_circle_x = screen.get_width() - player_radius  # X position
+    # red_circle_y = 0 + player_radius  # Y position
+    # pygame.draw.circle(screen, "red", (red_circle_x, red_circle_y), player_radius)
+
+    # Define circle colors and their positions
+    circles = {
+        "green": (
+            screen.get_width() - player_radius,
+            screen.get_height() - player_radius,
+        ),
+        "purple": (player_radius, screen.get_height() - player_radius),
+        "yellow": (player_radius, player_radius),
+        "blue": (screen.get_width() - player_radius, player_radius),
+    }
+
+    # Draw the circles
+    for color, position in circles.items():
+        pygame.draw.circle(screen, color, position, player_radius)
 
     pygame.display.flip()
 
