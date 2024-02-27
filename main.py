@@ -25,6 +25,12 @@ def keep_player_on_screen(player_pos, screen_width, screen_height, player_radius
     return player_pos
 
 
+def player_circle():
+    pygame.draw.circle(
+        screen, "white", (int(player_pos.x), int(player_pos.y)), player_radius
+    )
+
+
 while running:
     dt = clock.tick(60) / 1000.0
     print(
@@ -61,9 +67,8 @@ while running:
     )
 
     # Draw the red player circle
-    pygame.draw.circle(
-        screen, "white", (int(player_pos.x), int(player_pos.y)), player_radius
-    )
+
+    player_circle()
 
     # Draw the green circle in the bottom-right corner
     # green_circle_x = screen.get_width() - player_radius  # X position
@@ -98,6 +103,10 @@ while running:
     # Draw the circles
     for color, position in circles.items():
         pygame.draw.circle(screen, color, position, player_radius)
+
+    def check_overlap():
+        if player_pos.x == green_circle_x and player_pos.y == green_circle_y:
+            print("overlap")
 
     pygame.display.flip()
 
