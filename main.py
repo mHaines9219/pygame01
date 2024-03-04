@@ -48,7 +48,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    screen.fill("white")
+    screen.fill("red")
 
     # Update player position based on key presses
     keys = pygame.key.get_pressed()
